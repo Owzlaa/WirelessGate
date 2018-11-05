@@ -37,6 +37,8 @@ app.get('/post/fauchert', (req) => {
     let my_date = new Date();
     let my_hour = my_date.getHours();
     let my_minute = my_date.getMinutes();
+    let my_good_time = my_hour + "h" + my_minute;
+
     console.log(my_good_time);
 
 })
@@ -47,6 +49,7 @@ app.get('/post/lejeunem', (req) => {
     let my_date = new Date();
     let my_hour = my_date.getHours();
     let my_minute = my_date.getMinutes();
+    let my_good_time = my_hour + "h" + my_minute;
     console.log(my_good_time);
 
 })
