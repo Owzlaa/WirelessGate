@@ -34,6 +34,9 @@ app.get('/', (req, res) => {
 app.get('/post/fauchert', (req) => {
     fs.writeFile('fichier.txt',  " Théo Faucher à " + my_good_time , (err) => {});
     fs.writeFile('ouvertferme.txt', 'Ouvert', (err) => {});
+    let my_date = new Date();
+    let my_hour = my_date.getHours();
+    let my_minute = my_date.getMinutes();
     console.log(my_good_time);
 
 })
@@ -41,6 +44,9 @@ app.get('/post/fauchert', (req) => {
 app.get('/post/lejeunem', (req) => {
     fs.writeFile('fichier.txt', " Maxime Le Jeune à " + my_good_time, (err) => {});
     fs.writeFile('ouvertferme.txt', 'Ouvert', (err) => {});
+    let my_date = new Date();
+    let my_hour = my_date.getHours();
+    let my_minute = my_date.getMinutes();
     console.log(my_good_time);
 
 })
