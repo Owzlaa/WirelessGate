@@ -1,0 +1,60 @@
+<html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset='UTF-8'>
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+      <link rel="icon" type="image/x-icon" href="acceuil/images/favicon.ico">
+      <title>Humidité</title>
+    <style>
+      body {
+
+        background-color: white;
+        width:100%;
+        margin: 0;
+        border: 0;    
+        vertical-align: baseline;
+        font-family: 'Open Sans', sans-serif;
+      }
+       
+      h3{
+        font-size: 20px;
+        text-align: center;
+        margin-top: 20%;
+
+      }
+
+      h1{
+        font-size: 42px;
+        text-align: center;
+        margin-top: 20%;
+
+      }
+
+    </style>  
+
+      <script type="text/javascript">
+        
+        window.onload=function() {
+            refresh();
+        };
+          
+        function refresh(time)
+        {
+            setTimeout(function () { window.location.reload(); }, 1000);
+        }
+            
+
+    </script>
+
+    </body>
+
+    </head>
+
+    <body>
+
+        <h1><%= test%></h1> 
+
+        <h3>La dernière personne entrée est <%= kietrentre%> </h3>  
+
+    </body>
+</html>
