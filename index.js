@@ -31,23 +31,27 @@ app.get('/', (req, res) => {
 });
 
 
-app.post('/post/fauchert', (req) => {
+app.get('/post/fauchert', (req) => {
     fs.writeFile('fichier.txt',  " Théo Faucher à " + my_good_time , (err) => {});
     fs.writeFile('ouvertferme.txt', 'Ouvert', (err) => {});
     console.log(my_good_time);
 
 })
 
-app.post('/post/lejeunem', (req) => {
+app.get('/post/lejeunem', (req) => {
     fs.writeFile('fichier.txt', " Maxime Le Jeune à " + my_good_time, (err) => {});
     fs.writeFile('ouvertferme.txt', 'Ouvert', (err) => {});
     console.log(my_good_time);
 
 })
 
-app.post('/post/ferme', (req) => {
-    fs.writeFile('ouvertferme.txt', 'Fermé', (err) => {});
-    })
+app.get('/post/ferme', (req) => {
+    fs.writeFile('ouvertferme.txt', 'Fermé', (err) => {
+        if (err != null) {
+            res.end("Envoyé")
+        }
+    });
+})
 
 app.listen(port, () => {
     console.log(`Server running on localhost:${port}`);
