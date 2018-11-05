@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "fs-extra": "^7.0.0",
+    "os": "^0.1.1"
   },
   "devDependencies": {},
   "description": ""
