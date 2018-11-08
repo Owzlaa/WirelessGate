@@ -1,23 +1,27 @@
 const express = require('express');
       fs = require('fs');
       bodyParser = require('body-parser');
-      ejs = require('ejs'); 
+      ejs = require('ejs');
+ 
 
 let nomprenom;
     app = express();
     port = process.env.PORT | 8080;
 
+app.use("/favicon.ico", express.static('/views/favicon.ico')); 
+
 app.use(bodyParser.urlencoded({
     extended: true
 }))
+
 app.set('view engine', 'ejs');
 app.set('views', "./views")
 
 app.get('/', (req, res) => {
-    fs.readFile('ouvertferme.txt', (err, ouverferme) => {
-        fs.readFile('fichier1er.txt', (err, fichier1er) => {
-            fs.readFile('fichier2nd.txt', (err, fichier2nd) => {
-                fs.readFile('fichier3eme.txt', (err, fichier3eme) => {
+    fs.readFile('files/ouvertferme.txt', (err, ouverferme) => {
+        fs.readFile('files/fichier1er.txt', (err, fichier1er) => {
+            fs.readFile('files/fichier2nd.txt', (err, fichier2nd) => {
+                fs.readFile('files/fichier3eme.txt', (err, fichier3eme) => {
                     res.render('index', {ouvertferme: ouverferme, historique1er: fichier1er, historique2nd: fichier2nd, historique3eme: fichier3eme}); 
                 });
             });
@@ -52,10 +56,10 @@ function fonction( req, res)
 
     }
     let my_good_time =my_date.getHours() +1 + "h" + my_minute;
-    fs.writeFile('ouvertferme.txt', 'Ouvert', (err) => {});
-    fs.copyFileSync('fichier2nd.txt', 'fichier3eme.txt', (err) => {});
-    fs.copyFileSync('fichier1er.txt', 'fichier2nd.txt', (err) => {});
-    fs.writeFile('fichier1er.txt',  nomprenom + " à " + my_good_time , (err) => {});
+    fs.writeFile('files/ouvertferme.txt', 'Ouvert', (err) => {});
+    fs.copyFileSync('files/fichier2nd.txt', 'files/fichier3eme.txt', (err) => {});
+    fs.copyFileSync('files/fichier1er.txt', 'files/fichier2nd.txt', (err) => {});
+    fs.writeFile('files/fichier1er.txt',  nomprenom + " à " + my_good_time , (err) => {});
     res.end(my_good_time);
 
 
@@ -63,7 +67,7 @@ function fonction( req, res)
 }
 
 app.get('/post/ferme', (req, res) => {
-    fs.writeFile('ouvertferme.txt', 'Fermé', (err) => {
+    fs.writeFile('files/files/ouvertferme.txt', 'Fermé', (err) => {
         res.end("yes")
     })
 })
