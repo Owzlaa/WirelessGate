@@ -48,9 +48,9 @@
                 <div class="container-fluid col-md-2" style="margin-top: 50px;">
                     <div class="row">
                        <div class="container" style="text-align: center;">
-                            <form action="localhost:8080/post" method="POST">
-                                <button class="btn btn-success btn btn-lg" type="fauchert" name="ferme" id="submit_btn">Activé</button>
-                                <button class="btn btn-danger btn btn-lg " type="ferme" name="lejeunem" id="submit_btn">Désactivé</button>
+                            <form action="/post/etat/activer" method="POST"><button class="btn btn-success btn btn-lg" type="submit" id="submit_btn">Activé</button></form>
+
+                             <form action="/post/etat/desactiver" method="POST"><button class="btn btn-danger btn btn-lg " type="submit" id="submit_btn">Désactivé</button></form>
                             </form>
                        </div>
                     </div>

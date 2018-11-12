@@ -3,9 +3,10 @@ const express = require('express');
       bodyParser = require('body-parser');
       ejs = require('ejs');
  
-
+let activerdesactiver;
 let nomprenom;
-    app = express();
+    
+let app = express();
     port = process.env.PORT | 8080;
 
 app.use("/favicon.ico", express.static('/views/favicon.ico')); 
@@ -31,6 +32,29 @@ app.get('/', (req, res) => {
 });
 
 
+
+app.post('/post/etat/desactiver', (req, res) => {
+
+    fs.writeFile('files/ouvertferme.txt', 'Désactivé', (err) => {});
+    activerdesactiver = 'Désactivé';
+    res.redirect('/');
+})
+
+app.post('/post/etat/activer', (req, res) => {
+
+    fs.writeFile('files/ouvertferme.txt', 'Activé', (err) => {});
+    activerdesactiver = 'Activé';
+    res.redirect('/');
+
+})
+
+app.get('/post/activerdesactiver', (req, res) => {
+
+    res.end(activerdesactiver);
+
+
+})
+
 app.get('/post/fauchert', (req, res) => {
 
     nomprenom = 'Théo Faucher';
@@ -50,7 +74,7 @@ function fonction( req, res)
 
     let my_date = new Date();
     let my_minute = my_date.getMinutes();
-    if(my_minute <= 10)
+    if(my_minute < 10)
     {
 
         my_minute = "0" + my_minute;
@@ -63,8 +87,6 @@ function fonction( req, res)
     fs.writeFile('files/fichier1er.txt',  nomprenom + " à " + my_good_time , (err) => {});
     res.end(my_good_time);
 
-
-
 }
 
 app.get('/post/ferme', (req, res) => {
@@ -72,6 +94,15 @@ app.get('/post/ferme', (req, res) => {
         res.end("yes")
     })
 })
+
+app.use((req, res, next) => {
+    res.status(404).send("Erreur 404: Page non existante")
+  })
+  
+  app.use((err, req, res, next) => {
+    console.error(err.stack)
+    res.status(500).send('Quelque chose est cassé ! Désolé du dérangement')
+  })
 
 app.listen(port, () => {
     console.log(`Server running on localhost:${port}`);
