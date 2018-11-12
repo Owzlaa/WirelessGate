@@ -17,12 +17,13 @@ app.use(bodyParser.urlencoded({
 app.set('view engine', 'ejs');
 app.set('views', "./views")
 
+
 app.get('/', (req, res) => {
     fs.readFile('files/ouvertferme.txt', (err, ouverferme) => {
         fs.readFile('files/fichier1er.txt', (err, fichier1er) => {
             fs.readFile('files/fichier2nd.txt', (err, fichier2nd) => {
                 fs.readFile('files/fichier3eme.txt', (err, fichier3eme) => {
-                    res.render('index', {ouvertferme: ouverferme, historique1er: fichier1er, historique2nd: fichier2nd, historique3eme: fichier3eme}); 
+                    res.render('index', {ouvertferme: ouverferme, historique1er: fichier1er, historique2nd: fichier2nd, historique3eme: fichier3eme});
                 });
             });
         });
