@@ -91,7 +91,7 @@ function fonction( req, res)
 
 app.get('/post/ferme', (req, res) => {
     fs.writeFile('files/files/ouvertferme.txt', 'Fermé', (err) => {
-        res.end("yes")
+        res.end("Fermé")
     })
 })
 
@@ -105,5 +105,5 @@ app.use((req, res, next) => {
   })
 
 app.listen(port, () => {
-    console.log(`Server running on localhost:${port}`);
+    console.log(`Le serveur est en local sur le port: ${port}`);
 })
