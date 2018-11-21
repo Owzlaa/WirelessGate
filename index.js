@@ -18,7 +18,7 @@ app.set('views', "./views")
 
 
 app.get('/', (req, res) => {    //Si le serveur reçois une requette http de type GET alors ...
-    fs.readFile('files/ouvertferme.txt', (err, ouvetrferme) => {    //Le serveur lit le contenu du fichier et le copie dans un variable nommé "ouvetrferme"
+    fs.readFile('files/ouvertferme.txt', (err, ouvertferme) => {    //Le serveur lit le contenu du fichier et le copie dans un variable nommé "ouvetrferme"
         fs.readFile('files/fichier1er.txt', (err, fichier1er) => {
             fs.readFile('files/fichier2nd.txt', (err, fichier2nd) => {
                 fs.readFile('files/fichier3eme.txt', (err, fichier3eme) => {
@@ -105,13 +105,8 @@ app.use((err, req, res, next) =>
     res.status(500).send('Quelque chose est cassé ! Désolé du dérangement')     //Si, le serveur rencontre un problème, il rend ca au client
 });
 
-<<<<<<< HEAD
-app.listen(port, () => {
-    console.log(`Le serveur est en local sur le port: ${port}`);
-})
-=======
 app.listen(port, () =>
 {
     console.log(`Server running on localhost:${port}`); //Ecrit dans la console ce message
 });
->>>>>>> 3367e598308778ca6dadd87320122ad7ee9fa23a
+
