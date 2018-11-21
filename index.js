@@ -23,6 +23,15 @@ app.get('/', (req, res) => {    //Si le serveur reçois une requette http de typ
             fs.readFile('files/fichier2nd.txt', (err, fichier2nd) => {
                 fs.readFile('files/fichier3eme.txt', (err, fichier3eme) => {
                     res.render('index', {ouvertferme: ouvertferme, historique1er: fichier1er, historique2nd: fichier2nd, historique3eme: fichier3eme}); //Le serveur envoie la page web nommé "index" au client
+                     
+                    if (ouvertferme == "Activé")
+                    {
+
+                        fs.writeFile('files/ouvertferme.txt', 'Fermé', (err) => {});  
+
+                    }
+                
+                
                 });
             });
         });
