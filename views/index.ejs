@@ -9,19 +9,19 @@
                 <title>Gate Wireless</title>
                 <meta charset="UTF-8">
     <style>
-         @import url('https://fonts.googleapis.com/css?family=Oxygen');
+         @import url('https://fonts.googleapis.com/css?family=Oxygen'); /* importation librairie de police Oxygene*/
     </style>  
     
     <script type="text/javascript">
             
-        window.onload=function()
+        window.onload=function() //quand la page est charger on execute la fonction 
         { 
             refresh();
         };
               
         function refresh(time)
         {
-            setTimeout(function () { window.location.reload(); }, 5000);
+            setTimeout(function () { window.location.reload(); }, 5000); //elle permet d'actualiser la page 
         }
                 
     
@@ -29,45 +29,45 @@
     
     </head>
     
-        <body style="font-family: 'Oxygen' , sans-serif;">
+        <body style="font-family: 'Oxygen' , sans-serif;"> <!---on definit cette police d'ecriture grâce a la librairie importé un peu plus tôt en haut --->
          
-                <div class="container-fluid col-md-2">
-                    <div class="row">
-                        <div class="container" style="text-align: center; margin-top:25px;">
-                            <h1 style="font-size: 45px;">Gate Wireless</h1>
+                <div class="container-fluid col-md-2"> <!---debut container qui contient le titre --->
+                    <div class="row"> <!---retour ligne --->
+                        <div class="container" style="text-align: center; margin-top:25px;"> <!---cette div sera un container et sera placé a 25px du haut de la page  --->
+                            <h1 style="font-size: 45px;">Gate Wireless</h1> <!---Premier titre de la page--->
                         </div>
                     </div>
                 </div>
     
-                <div class="container-fluid col-md-2" style="margin-top:25px;">
+                <div class="container-fluid col-md-2" style="margin-top:25px;"> <!---debut container qui contient la valeur du portail s'il est activer ou non --->
                         <div class="row">
-                           <div class="container" style="text-align: center;">
-                                <p style="font-size: 30px;"><%= ouvertferme%></p>
+                           <div class="container" style="text-align: center;"> <!---aligner le texte au centre --->
+                                <p style="font-size: 30px;"><%= ouvertferme%></p> <!---paragraphe jouant avec le node.js pour communiquer si le portail est ouvert ou fermer --->
                            </div>
                         </div>
                     </div>
                 
-                <div class="container-fluid col-md-2" style="margin-top: 50px;">
+                <div class="container-fluid col-md-2" style="margin-top: 50px;"> <!---début container contenant les 2 boutons principaux --->
                     <div class="row">
-                       <div class="container" style="text-align: center;">
-                            <form action="/post/etat/activer" method="POST"><button class="btn btn-success btn btn-lg" type="submit" id="submit_btn">Activé</button></form>
+                       <div class="container" style="text-align: center;"> <!---aligner le texte au centre --->
+                            <form action="/post/etat/activer" method="POST"><button class="btn btn-success btn btn-lg" type="submit" id="submit_btn">Activé</button></form> <!---bouton activer servant à mettre en etat le portail --->
 
-                             <form action="/post/etat/desactiver" method="POST"><button class="btn btn-danger btn btn-lg " type="submit" id="submit_btn">Désactivé</button></form>
+                             <form action="/post/etat/desactiver" method="POST"><button class="btn btn-danger btn btn-lg " type="submit" id="submit_btn">Désactivé</button></form> <!---bouton desactiver servant à bloquer le portail sur position fermé --->
                             </form>
                        </div>
                     </div>
                 </div>
     
-                <div class="container col-md-4" style="margin-top: 160px;">
+                <div class="container col-md-4" style="margin-top: 160px;"> <!---début container de l'historique des entrés--->
                     <div class="row">
-                        <h5 style="margin-left: 220px; font-size:13px ;">Les dernières personnes rentrées sont:</h5>
-                            <div class="container col-md-6 bg bg-dark" style="margin-left: 220px;">
-                                    <div class="container-fluid bg bg-white" style="margin-left: -10px; width: 120%;">
-                                        <code style="font-size: 17px; color: black;"><%= historique1er%><br><%= historique2nd%><br><%= historique3eme%></code>
+                        <h5 style="margin-left: 220px; font-size:13px ;">Les dernières personnes rentrées sont:</h5> <!---titre de l'historique --->
+                            <div class="container col-md-6 bg bg-dark" style="margin-left: 220px;"> <!---col-md-6 centrer le container avec un fond noir--->
+                                    <div class="container-fluid bg bg-white" style="margin-left: -10px; width: 120%;"> <!---mettre un fond blanc le col-md-6 permettant a aligner le container --->
+                                        <code style="font-size: 17px; color: black;"><%= historique1er%><br><%= historique2nd%><br><%= historique3eme%></code> <!--- ecriture ecrit en noir, les balise avec les % sont relié a du node pour les historiques--->
                                     </div>
                             </div>
                     </div>
                 </div>
             
-            </body>
+        </body>
 </html>
