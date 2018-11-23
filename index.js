@@ -98,7 +98,7 @@ function fonction( req, res)    //Fontion qui permet d'éxécuter à plusieurs e
 }
 
 app.get('/post/ferme', (req, res) => {
-    fs.writeFile('files/files/ouvertferme.txt', 'Fermé', (err) => {
+    fs.writeFile('files/ouvertferme.txt', 'Fermé', (err) => {
           res.end("ferme");
     })
 });
